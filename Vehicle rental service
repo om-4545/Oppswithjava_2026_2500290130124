@@ -1,0 +1,42 @@
+interface Rentable {
+
+    double calculateRent(int days);
+}
+
+
+class Car implements Rentable {
+
+    // Static counter shared by all vehicles
+    public static int totalVehiclesRented = 0;
+
+    // Final constant
+    public static final double TAX_RATE = 0.05;
+
+    // Rate per day
+    private final double rate = 1500.0;
+
+    @Override
+    public double calculateRent(int days) {
+        totalVehiclesRented++;
+        return rate * days;
+    }
+}
+
+
+class Bike implements Rentable {
+
+    // Same static counter shared with Car
+    public static int totalVehiclesRented = 0;
+
+    // Final constant
+    public static final double TAX_RATE = 0.05;
+
+    // Rate per day
+    private final double rate = 500.0;
+
+    @Override
+    public double calculateRent(int days) {
+        totalVehiclesRented++;
+        return rate * days;
+    }
+}
